@@ -1,0 +1,12 @@
+services:
+  zoeyvid-bot:
+    container_name: zoeyvid-bot
+    image: zoeyvid/zoeyvid-bot
+    restart: unless-stopped
+    network_mode: bridge
+#    ports:
+#      - "127.0.0.1:2020:2020"
+    volumes:
+      - "/opt/zoeyvid-bot.json:/app/config.json:ro"
+    environment:
+      TZ: Europe/Berlin
