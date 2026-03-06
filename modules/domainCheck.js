@@ -13,9 +13,9 @@ module.exports = {
 		if (message.content.toLowerCase().match(/discord[^\s]*gg|discord[^\s]*invite/g) != null) {
 			message.delete();
 			teamServerClient.send({
-				content: message.author.username + ' hat folgende Nachricht gesendet (invite), welche automatisch gelöscht wurde "' + message.content + '"',
+				content: message.author.username + ' hat folgende Nachricht gesendet (invite), welche automatisch gelöscht wurde ```\n' + message.content + '\n```',
 			});
-			message.author.send('In deiner letzen Nachricht wurde ein Discord Invite automatisch endeckt. Folgedesen wurde deine Nachricht gelöscht und du für eine Stunde getimeoutet. Das weitere vorgehen endscheidet das Team.');
+			message.author.send('Your message was deleted since it contained a discord invite. Your message: ```\n' + message.content + '\n```');
 			message.member.timeout(60 * 60 * 1000, 'Automod - Timeout wegen Discord Invite - eine Stunde');
 			return;
 		}
@@ -40,10 +40,10 @@ module.exports = {
 				if (address == '0.0.0.0') {
 					message.delete();
 					teamServerClient.send({
-						content: message.author.username + ' hat folgende Nachricht gesendet (' + urls[i] + '), welche automatisch gelöscht wurde `' + message.content + '`',
+						content: message.author.username + ' hat folgende Nachricht gesendet (' + urls[i] + '), welche automatisch gelöscht wurde ```\n' + message.content + '\n```',
 					});
-					message.author.send('In deiner letzen Nachricht wurde eine im ZoeyVidNet gesperrte Domain (' + urls[i] + ') automatisch endeckt. Folgedesen wurde deine Nachricht gelöscht und du für eine Stunde getimeoutet. Das weitere vorgehen endscheidet das Team. Deine abgesendete Nachricht: `' + message.content + '`');
-					message.member.timeout(60 * 60 * 1000, 'Automod - Timeout wegen gespeerte Domain - eine Stunde');
+					message.author.send('Your message was deleted since it contains a blocked domain (' + urls[i] + '). This bot tends to overblock, so sorry if this was the case. Your message: ```\n' + message.content + '\n```');
+					message.member.timeout(5 * 60 * 1000, 'Automod - Timeout wegen gespeerte Domain - 5min');
 				}
 			});
 		}
