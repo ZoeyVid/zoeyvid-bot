@@ -9,5 +9,5 @@
 			"pinDigests": false
 		}
 	],
-  "branchPrefix": "renovate-deps-update-"
+	"branchPrefix": "renovate-deps-update-"
 }
