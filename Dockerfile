@@ -14,4 +14,4 @@ RUN apk upgrade --no-cache -a && \
     apk del --no-cache pnpm binutils file
 
 ENTRYPOINT ["tini", "--", "node", "/app/main.js"]
-HEALTHCHECK CMD [ "$(wget -q -O - http://127.0.0.1:2020)" = "Never gonna give you up" ] || exit 1
+HEALTHCHECK CMD [ "$(wget -q -O - http://127.0.0.1:2020)" = "$(cat /app/config.json | jq .status_message)" ] || exit 1
