@@ -5,7 +5,7 @@ ENV NODE_ENV=production
 COPY . /app
 WORKDIR /app
 RUN apk upgrade --no-cache -a && \
-    apk add --no-cache tzdata tini nodejs pnpm binutils file && \
+    apk add --no-cache tzdata tini nodejs jq pnpm binutils file && \
     pnpm install --frozen-lockfile --prod && \
     pnpm cache delete && \
     find node_modules -name "*.map" -delete && \
