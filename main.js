@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Collection, Events } = require('discord.js');
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
 require('http');
 const fs = require('node:fs');
 const path = require('node:path');

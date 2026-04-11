@@ -1,4 +1,5 @@
 const { checkMessageForDomains } = require('../modules/domainCheck.js');
+const { WebhookClient } = require('discord.js');
 
 module.exports = {
 	name: 'messageCreate',
