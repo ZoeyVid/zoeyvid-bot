@@ -60,7 +60,7 @@ jobs:
           push: true
           tags: ghcr.io/${{ steps.un.outputs.un }}/${{ github.event.repository.name }}:${{ steps.pr.outputs.pr }}
       - name: add comment (PR)
-        uses: mshick/add-pr-comment@8e4927817251f1ff60c001f04568532b38e0b4a0 # v3.11
+        uses: mshick/add-pr-comment@8e4927817251f1ff60c001f04568532b38e0b4a0 # v3.11.0
         if: ${{ github.event_name == 'pull_request' }}
         with:
           message: "The Docker Image can now be found here: `ghcr.io/${{ steps.un.outputs.un }}/${{ github.event.repository.name }}:${{ steps.pr.outputs.pr }}`"
