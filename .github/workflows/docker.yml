@@ -36,7 +36,7 @@ jobs:
           username: ${{ steps.un.outputs.un }}
           password: ${{ github.token }}
       - name: Build
-        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf # v7.2.0
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         if: ${{ github.event_name != 'pull_request' }}
         with:
           context: .
@@ -51,7 +51,7 @@ jobs:
         id: pr
         run: echo "pr=$(echo pr-${{ github.ref_name }} | sed "s|refs/pull/:||g" | sed "s|/merge||g")" >> $GITHUB_OUTPUT
       - name: Build (PR)
-        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf # v7.2.0
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         if: ${{ github.event_name == 'pull_request' }}
         with:
           context: .
