@@ -8,6 +8,5 @@
 			"matchManagers": ["docker-compose"],
 			"pinDigests": false
 		}
-	],
-	"branchPrefix": "renovate-deps-update-"
+	]
 }
