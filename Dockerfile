@@ -13,5 +13,6 @@ RUN apk upgrade --no-cache -a && \
     find /app/node_modules -name "*.node" -type f -exec file {} \; && \
     apk del --no-cache pnpm binutils file
 
+USER nobody:nobody
 ENTRYPOINT ["tini", "--", "node", "/app/main.js"]
 HEALTHCHECK CMD [ "$(wget -q -O - http://127.0.0.1:"$(cat /app/config.json | jq -r .status_port)")" = "$(cat /app/config.json | jq -r .status_message)" ] || exit 1
