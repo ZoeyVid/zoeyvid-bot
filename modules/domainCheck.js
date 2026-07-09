@@ -1,5 +1,4 @@
-const { WebhookClient } = require('discord.js');
-const { PermissionsBitField } = require('discord.js');
+const { WebhookClient, PermissionsBitField } = require('discord.js');
 const dns = require('node:dns');
 const { ifUserApproved } = require('./approvUser.js');
 

@@ -11,8 +11,8 @@
     "prettier": "3.9.4"
   },
   "name": "zoeyvid-bot",
-  "description": "The Bot of the ZoeyVid Discord Server!",
-  "version": "1.0.1",
+  "description": "The Bot of the NPMPlus/ZoeyVid Discord Server!",
+  "version": "1.0.2",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
