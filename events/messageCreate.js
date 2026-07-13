@@ -11,7 +11,7 @@ module.exports = {
 		if (message.channelId === config.auto_ban_channel) {
 			if (!message.member.bannable) return;
 			await message.member.send(`You have been banned from the ${message.guild.name} for posting in the Auto-Ban Channel.`);
-			await message.member.ban({ deleteMessageSeconds: 60 * 60 * 24 * 7, reason: 'Auto-Ban: Posted in the Auto-Ban Channel' });
+			await message.member.ban({ deleteMessageSeconds: 60 * 60 /* 1 hour */, reason: 'Auto-Ban: Posted in the Auto-Ban Channel' });
 			console.log(`Banned ${message.author.tag} for posting in the Auto-Ban Channel.`);
 			const teamServerClient = new WebhookClient({ id: config.log_webhook_id, token: config.log_webhook_token });
 			teamServerClient.send({
