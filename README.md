@@ -1,3 +1,3 @@
 # ZoeyVid-Bot
 
-The Bot of the NPMPlus/ZoeyVid Discord Server!
+The Bot of the ZoeyVid/NPMPlus Discord Server!
