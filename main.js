@@ -1,13 +1,19 @@
-const { Client, GatewayIntentBits, Collection, Events } = require('discord.js');
+const { Client, GatewayIntentBits, Collection, Events } = require("discord.js");
 const client = new Client({
-	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMembers,
+		GatewayIntentBits.GuildIntegrations,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+	],
 });
-require('http');
-const fs = require('node:fs');
-const path = require('node:path');
-const config = require('./config.json');
+require("node:http");
+const fs = require("node:fs");
+const path = require("node:path");
+const config = require("./config.json");
 
-const eventFiles = fs.readdirSync('./events').filter((file) => file.endsWith('.js'));
+const eventFiles = fs.readdirSync("./events").filter((file) => file.endsWith(".js"));
 
 for (const file of eventFiles) {
 	const event = require(`./events/${file}`);
@@ -18,11 +24,11 @@ for (const file of eventFiles) {
 	}
 }
 
-require('./modules/status')(config.status_port, config.status_message);
+require("./modules/status")(config.status_port, config.status_message);
 
 client.commands = new Collection();
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter((file) => file.endsWith('.js'));
+const commandsPath = path.join(__dirname, "commands");
+const commandFiles = fs.readdirSync(commandsPath).filter((file) => file.endsWith(".js"));
 
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
@@ -41,7 +47,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 		await command.execute(interaction, client, config);
 	} catch (error) {
 		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		await interaction.reply({ content: "There was an error while executing this command!", ephemeral: true });
 	}
 });
 

@@ -1,8 +1,8 @@
-const { checkMessageForDomains } = require('../modules/domainCheck.js');
+const { checkMessageForDomains } = require("../modules/domainCheck.js");
 
 module.exports = {
-	name: 'messageUpdate',
-	async execute(messageOld, messageNew, client, config) {
+	name: "messageUpdate",
+	async execute(messageOld, messageNew, _client, config) {
 		checkMessageForDomains(messageOld, config);
 		checkMessageForDomains(messageNew, config);
 	},
