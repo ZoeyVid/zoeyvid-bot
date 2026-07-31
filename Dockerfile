@@ -15,4 +15,4 @@ RUN apk upgrade --no-cache -a && \
 
 USER nobody:nobody
 ENTRYPOINT ["tini", "--", "node", "/app/main.js"]
-HEALTHCHECK CMD [ "$(wget -q -O - http://127.0.0.1:"$(cat /app/config.json | jq -r .status_port)")" = "$(cat /app/config.json | jq -r .status_message)" ] || exit 1
+HEALTHCHECK CMD ["/bin/sh", "-c", "[ \"$(wget -q -O - http://127.0.0.1:\"$(cat /app/config.json | jq -r .status_port)\")\" = \"$(cat /app/config.json | jq -r .status_message)\" ]"]
