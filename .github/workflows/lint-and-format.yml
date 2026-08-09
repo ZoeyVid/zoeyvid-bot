@@ -5,6 +5,9 @@ on:
       - develop
   pull_request:
   workflow_dispatch:
+defaults:
+  run:
+    shell: bash
 jobs:
   lint-and-format:
     runs-on: ubuntu-slim
