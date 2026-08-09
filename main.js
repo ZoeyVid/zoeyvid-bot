@@ -8,7 +8,6 @@ const client = new Client({
 		GatewayIntentBits.MessageContent,
 	],
 });
-require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
 const config = require("./config.json");
