@@ -11,9 +11,6 @@ permissions:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
-defaults:
-  run:
-    shell: bash
 jobs:
   lint-and-format:
     runs-on: ubuntu-slim
