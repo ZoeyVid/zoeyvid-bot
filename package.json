@@ -3,6 +3,6 @@
 		"discord.js": "14.27.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.9"
+		"@biomejs/biome": "2.5.10"
 	}
 }
